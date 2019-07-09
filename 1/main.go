@@ -1,0 +1,35 @@
+package main
+
+import (
+	"fmt"
+	"github.com/dyldawg/euler/timing"
+)
+
+func main() {
+
+	timing.Start()
+
+	var div3or5 []int
+
+	for i := 1; i < 1000; i++ {
+
+		if i%3 == 0 || i%5 == 0 {
+
+			div3or5 = append(div3or5, i)
+
+		}
+
+	}
+
+	var sum int
+
+	for _, num := range div3or5 {
+		sum += num
+	}
+
+	fmt.Println(sum)
+
+	timing.End()
+
+
+}
