@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/dyldawg/euler/timing"
+	"go-euler/timing"
 )
 
 func main() {

@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/dyldawg/euler/timing"
+	"go-euler/timing"
 )
 
 func main() {
@@ -14,7 +14,7 @@ func main() {
 
 	var fibEven []int
 
-	for sum <= 4000000{
+	for sum <= 4000000 {
 
 		x := sum
 

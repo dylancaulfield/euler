@@ -2,7 +2,8 @@ package main
 
 import (
 	"fmt"
-	"github.com/dyldawg/euler/timing"
+	"go-euler/timing"
+
 	"strconv"
 )
 
@@ -42,8 +43,7 @@ func isPalindrome(num int) bool {
 
 	for i := len(str) - 1; i >= 0; i-- {
 
-
-		rev[len(str) - i - 1] = str[i]
+		rev[len(str)-i-1] = str[i]
 	}
 
 	if string(rev) == str {

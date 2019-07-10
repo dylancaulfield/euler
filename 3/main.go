@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/dyldawg/euler/timing"
+	"go-euler/timing"
 )
 
 func main() {
@@ -20,7 +20,7 @@ func largestFactor(number int) int {
 
 	var factors []int
 
-	for i := 2; i * i < number; i++ {
+	for i := 2; i*i < number; i++ {
 		if number%i == 0 {
 
 			if isPrime(i) {
@@ -30,11 +30,11 @@ func largestFactor(number int) int {
 		}
 	}
 
-	return factors[len(factors) - 1]
+	return factors[len(factors)-1]
 }
 
 func isPrime(number int) bool {
-	for i := 2; i * i < number; i++ {
+	for i := 2; i*i < number; i++ {
 		if number%i == 0 {
 			return false
 		}
