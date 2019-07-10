@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"go-euler/timing"
 )
 
 func main() {
