@@ -7,13 +7,10 @@ import (
 
 func main() {
 
-	timing.Start()
-
 	f := largestFactor(600851475143)
 
 	fmt.Println(f)
 
-	timing.End()
 }
 
 func largestFactor(number int) int {

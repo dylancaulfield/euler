@@ -7,13 +7,9 @@ import (
 
 func main() {
 
-	timing.Start()
-
 	x := smallestMultiple(1, 20)
 
 	fmt.Println(x)
-
-	timing.End()
 
 }
 

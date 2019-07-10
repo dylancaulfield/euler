@@ -10,8 +10,6 @@ const numbers = "371072875339021027987979982208375902465101357402504637693767749
 
 func main() {
 
-	timing.Start()
-
 	var nums []float64
 
 	for i := 0; i <= len(numbers)-50; i += 50 {
@@ -39,7 +37,5 @@ func main() {
 	}
 
 	fmt.Println(sum)
-
-	timing.End()
 
 }

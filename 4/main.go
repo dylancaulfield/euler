@@ -9,8 +9,6 @@ import (
 
 func main() {
 
-	timing.Start()
-
 	largest := 1000
 
 	for i := 100; i < 1000; i++ {
@@ -30,8 +28,6 @@ func main() {
 	}
 
 	fmt.Println(largest)
-
-	timing.End()
 
 }
 

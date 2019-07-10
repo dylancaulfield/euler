@@ -7,8 +7,6 @@ import (
 
 func main() {
 
-	timing.Start()
-
 	//Sum of squares
 	sum := sumOfSquares(1, 100)
 
@@ -16,8 +14,6 @@ func main() {
 	square := squareOfSums(1, 100)
 
 	fmt.Println(square - sum)
-
-	timing.End()
 
 }
 

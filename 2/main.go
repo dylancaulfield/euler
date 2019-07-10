@@ -7,8 +7,6 @@ import (
 
 func main() {
 
-	timing.Start()
-
 	sum := 1
 	previous := 1
 
@@ -34,7 +32,5 @@ func main() {
 	}
 
 	fmt.Println(evenSum)
-
-	timing.End()
 
 }

@@ -2,14 +2,11 @@ package main
 
 import (
 	"fmt"
-	"go-euler/timing"
 	"math"
 	"sync"
 )
 
 func main() {
-
-	timing.Start()
 
 	mutex := sync.Mutex{}
 	wg := sync.WaitGroup{}
@@ -26,8 +23,6 @@ func main() {
 	wg.Wait()
 
 	fmt.Println(maxLengthStarter)
-
-	timing.End()
 
 }
 

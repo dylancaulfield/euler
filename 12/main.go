@@ -7,8 +7,6 @@ import (
 
 func main() {
 
-	timing.Start()
-
 	for i := 1; i > 0; i++ {
 
 		tri := nthTrianglular(float64(i))
@@ -21,8 +19,6 @@ func main() {
 		}
 
 	}
-
-	timing.End()
 
 }
 

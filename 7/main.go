@@ -7,13 +7,9 @@ import (
 
 func main() {
 
-	timing.Start()
-
 	p := nthPrime(6)
 
 	fmt.Println(p)
-
-	timing.End()
 
 }
 

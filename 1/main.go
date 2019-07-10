@@ -7,8 +7,6 @@ import (
 
 func main() {
 
-	timing.Start()
-
 	var div3or5 []int
 
 	for i := 1; i < 1000; i++ {
@@ -28,7 +26,5 @@ func main() {
 	}
 
 	fmt.Println(sum)
-
-	timing.End()
 
 }
