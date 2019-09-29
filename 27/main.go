@@ -44,7 +44,8 @@ func (q *Quadratic) getValue() int {
 }
 
 var (
-	primes = map[int]bool{}
+	// 0 is unchecked, 1 is checked but not prime, 2 is checked and prime
+	primes = map[int]int{}
 )
 
 func isPrime(number int) bool {
@@ -53,20 +54,24 @@ func isPrime(number int) bool {
 		return false
 	}
 
-	if primes[number] {
+	if primes[number] == 1 {
+		return false
+	}
+
+	if primes[number] == 2 {
 		return true
 	}
 
 	for i := 2; i*i < number; i++ {
 		if number%i == 0 {
 
-			primes[number] = false
+			primes[number] = 1
 			return false
 
 		}
 	}
 
-	primes[number] = true
+	primes[number] = 2
 	return true
 
 }
