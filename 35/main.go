@@ -1,16 +1,45 @@
 package main
 
 import (
+	"fmt"
 	"strconv"
 )
 
 func main() {
 
-	
+	circularsCount := 0
+
+	for i := 2; i < 100; i++ {
+
+		if !isPrime(i) {
+			continue
+		}
+
+		var arr [][]int
+		arr = append(arr, getDigits(i))
+
+		permutations := getPermutations(arr)
+
+		permutationsWithoutDuplicates := removeDuplicates(permutations)
+
+		for _, p := range permutationsWithoutDuplicates {
+
+			if !isPrime(formNumber(p)) {
+				continue
+			}
+
+			// All are prime..
+			circularsCount++
+		}
+
+	}
+
+	fmt.Println(circularsCount)
 
 }
 
-func permutations(numbers [][]int) [][]int {
+// TODO: check if already exists
+func getPermutations(numbers [][]int) [][]int {
 
 	if len(numbers[0]) == 2 {
 
@@ -28,7 +57,7 @@ func permutations(numbers [][]int) [][]int {
 
 	for i := 0; i < len(numbers); i++ {
 
-		// each number of number
+		// each digit of number
 
 		for j := 0; j < len(numbers[i]); j++ {
 
@@ -40,26 +69,23 @@ func permutations(numbers [][]int) [][]int {
 
 			numbersFrom2ndIndex = append(numbersFrom2ndIndex, swapped[1:])
 
-			perms := permutations(numbersFrom2ndIndex)
+			permutations := getPermutations(numbersFrom2ndIndex)
 
 			// add 1st piece back on
 
-			for _, perm := range perms {
+			for _, perm := range permutations {
 
-				var with1st []int
-				with1st = append(with1st, swapped[0])
+				perm = append([]int{swapped[0]}, perm...)
 
-				for _, ints := range perm {
-					with1st = append(with1st, ints)
-				}
-
-				argument = append(argument, with1st)
+				argument = append(argument, perm)
 
 			}
 
 		}
 
 	}
+
+	// TODO: remove duplicates
 
 	return argument
 
@@ -118,4 +144,60 @@ func swap(numbers []int, index int) []int {
 
 	return newSlice
 
+}
+
+var (
+	// 0 is unchecked, 1 is checked but not prime, 2 is checked and prime
+	primes = map[int]int{}
+)
+
+func isPrime(number int) bool {
+
+	if number <= 1 {
+		return false
+	}
+
+	if primes[number] == 1 {
+		return false
+	}
+
+	if primes[number] == 2 {
+		return true
+	}
+
+	for i := 2; i*i < number; i++ {
+		if number%i == 0 {
+
+			primes[number] = 1
+			return false
+
+		}
+	}
+
+	primes[number] = 2
+	return true
+
+}
+
+func removeDuplicates(numbers [][]int) [][]int {
+
+	store := map[int]bool{}
+	var nonDuplicated [][]int
+
+	for _, n := range numbers{
+
+		number := formNumber(n)
+
+		if store[number] {
+			continue
+		}
+
+		store[number] = true
+
+		digits := getDigits(number)
+		nonDuplicated = append(nonDuplicated, digits)
+
+	}
+
+	return nonDuplicated
 }
